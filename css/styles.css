@@ -14,7 +14,7 @@ header .mdl-layout-title {
     width: 100% !important;
 }
 
-a {
+a, .show-dialog {
     cursor: pointer;
 }
 
