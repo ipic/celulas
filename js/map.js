@@ -120,7 +120,7 @@ $(document).ready(function() {
         {
             pos: [-25.424429, -49.265382],
             name: 'Centro',
-            cells: [cells.onesimo]
+            cells: [cells.onesimo, cells.anaCicilia]
         },
         {
             pos: [-25.417489, -49.268707],
@@ -246,13 +246,12 @@ $(document).ready(function() {
     var dialog = $('dialog')[0];
     var showModalButton = $('.show-dialog');
     if (!dialog.showModal) {
-      dialogPolyfill.registerDialog(dialog);
+        dialogPolyfill.registerDialog(dialog);
     }
     showModalButton.on('click', function() {
-        console.log('CLICKED')
-      dialog.showModal();
+        dialog.showModal();
     });
     $('.close').on('click', function() {
-      dialog.close();
+        dialog.close();
     });
 });
