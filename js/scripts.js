@@ -243,15 +243,54 @@ $(document).ready(function() {
 
     $('#bairros').html(html);
 
-    var dialog = $('dialog')[0];
-    var showModalButton = $('.show-dialog');
-    if (!dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    showModalButton.on('click', function() {
+    // about
+    $('.show-dialog').on('click', function() {
+        var dialogName = $(this).data('dialog')
+        var dialog = $('#'+dialogName)[0];
+        if (!dialog.showModal) {
+            dialogPolyfill.registerDialog(dialog);
+        }
         dialog.showModal();
     });
     $('.close').on('click', function() {
+        var dialog = $(this).parent().parent('dialog')[0];
+        $('form').find(':input').val('');
+        dialogPolyfill.registerDialog(dialog);
         dialog.close();
     });
+
+    $('.send-form').click(function(e) {
+        e.preventDefault();
+        $(this).prop('disabled', true)
+        e.preventDefault();
+        var url = 'https://formspree.io/cafeipic@gmail.com',
+            formData = $('form').serializeArray(),
+            data = {};
+
+        formData.forEach(function(item) {
+            if (!item.name.startsWith('_')) {
+                data[item.name] = item.value;
+            }
+        });
+
+        $.ajax({
+            method: 'POST',
+            url: url,
+            data: data,
+            dataType: 'json',
+            success: function() {
+                alert('Obrigado! Entraremos em contato o mais breve possível.');
+                $('.send-form').prop('disabled', false);
+                $('form').find(':input').val('');
+                var dialog = $('form').parent().parent('dialog')[0];
+                dialogPolyfill.registerDialog(dialog);
+                dialog.close();
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+
+    });
+
 });

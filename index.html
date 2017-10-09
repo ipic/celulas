@@ -36,15 +36,52 @@
 
     </head>
     <body>
-        <dialog class="mdl-dialog">
+        <dialog class="mdl-dialog" id="about">
             <h4 class="mdl-dialog__title">Sobre</h4>
             <div class="mdl-dialog__content">
                 <p>Este é um mapa interativo das atuais células realizadas na Primeira Igreja Presbiteriana Indepentente de Curitiba.</p>
                 <p>Para saber mais informações, clique em um marcador ou selecione o bairro clicando no menu no lado superior esquerdo.</p>
-                <p>Caso deseje participar de uma célula, contate um responsável pela mesma e faça uma visita.</p>
+                <p>Caso deseje participar de uma célula, clique em "Participe" e preencha o formulário que iremos contactar você.</p>
                 <button type="button" class="mdl-button close">Fechar</button>
             </div>
         </dialog>
+
+        <dialog class="mdl-dialog" id="form">
+            <h4 class="mdl-dialog__title">Participe</h4>
+            <div class="mdl-dialog__content">
+                <form>
+                    <input type="hidden" name="_subject" value="[Células] Formulário de contato" />
+                    <input type="hidden" name="_language" value="pt" />
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="District" name="Bairro">
+                        <label class="mdl-textfield__label" for="District">Seu bairro</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="Name" name="Nome">
+                        <label class="mdl-textfield__label" for="Name">Seu nome</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="email" id="Email" name="Email">
+                        <label class="mdl-textfield__label" for="Email">Seu email (opcional)</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <input class="mdl-textfield__input" type="text" id="Phone" name="Telefone">
+                        <label class="mdl-textfield__label" for="Email">Telefone para contato</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input" type="text" rows="5" id="note" name="Mensagem"></textarea>
+                        <label class="mdl-textfield__label" for="note">Mensagem</label>
+                    </div>
+                    <p>
+                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent send-form" type="submit">
+                            Enviar
+                        </button>
+                    </p>
+                </form>
+                <button type="button" class="mdl-button close">Fechar</button>
+            </div>
+        </dialog>
+
         <!-- Always shows a header, even in smaller screens. -->
         <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
             <header class="mdl-layout__header">
@@ -54,14 +91,18 @@
                     <div class="mdl-layout-spacer"></div>
                     <!-- Navigation. We hide it in small screens. -->
                     <nav class="mdl-navigation mdl-layout--large-screen-only">
-                        <a class="mdl-navigation__link show-dialog" href="#">Sobre</a>
+                        <a class="mdl-navigation__link show-dialog" data-dialog="about" href="#">Sobre</a>
+                    </nav>
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <a class="mdl-navigation__link show-dialog" data-dialog="form" href="#">Participe</a>
                     </nav>
                 </div>
             </header>
             <div class="mdl-layout__drawer">
+                <span class="mdl-layout-title show-dialog" data-dialog="about">Sobre</span>
+                <span class="mdl-layout-title show-dialog" data-dialog="form">Participe</span>
                 <span class="mdl-layout-title">Bairros</span>
                 <nav id="bairros" class="mdl-navigation"></nav>
-                <span class="mdl-layout-title show-dialog">Sobre</span>
             </div>
             <main class="mdl-layout__content">
                 <div id="map"></div>
@@ -71,6 +112,6 @@
         <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
         <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js" integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
         <script src="js/dialog-polyfill.js"></script>
-        <script src="js/map.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>
