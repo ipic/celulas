@@ -27,7 +27,7 @@ $(document).ready(function() {
         leonice: {name: 'Leonice', day: 'Terça-Feira', hour: '20:30'},
         mariaCristina: {name: 'Maria Cristina', day: 'Sexta-Feira', hour: '20:00'},
         onesimo: {name: 'Onésimo', day: 'Terça-Feira', hour: '20:30'},
-        thelma: {name: 'Thelma', day: 'Terça-Feira', hour: '20:00'},
+        thelma: {name: 'Thelma', day: 'Quinta-Feira', hour: '20:00'},
         willian: {name: 'Willian', day: 'Terça-Feira', hour: '20:00'},
     }
 
@@ -75,7 +75,7 @@ $(document).ready(function() {
         {
             pos: [-25.388682, -49.233469],
             name: 'Boa Vista',
-            cells: [cells.cleverson, cells.leonice],
+            cells: [cells.cleverson, cells.leonice, cells.gesualda, cells.elce],
         },
         {
             pos: [-25.410444, -49.275414],
@@ -89,7 +89,7 @@ $(document).ready(function() {
         },
         {
             pos: [-25.389416, -49.355035],
-            name: 'Botiatuvinha',
+            name: 'Butiatuvinha',
             cells: [cells.mariaCristina],
         },
         {
@@ -118,9 +118,19 @@ $(document).ready(function() {
             cells: [cells.cleverson, cells.leonice],
         },
         {
+            pos: [-25.504267, -49.296065],
+            name: 'Capão Raso',
+            cells: [cells.antonioMadeira],
+        },
+        {
+            pos: [-25.433261, -49.297157],
+            name: 'Champagnat',
+            cells: [cells.jesiel]
+        },
+        {
             pos: [-25.424429, -49.265382],
             name: 'Centro',
-            cells: [cells.onesimo, cells.anaCicilia]
+            cells: [cells.onesimo, cells.anaCicilia, cells.lais]
         },
         {
             pos: [-25.417489, -49.268707],
@@ -135,7 +145,7 @@ $(document).ready(function() {
         {
             pos: [-25.433166 , -49.242973],
             name: 'Cristo Rei',
-            cells: [cells.antonioMadeira]
+            cells: [cells.antonioMadeira, cells.debora]
         },
         {
             pos: [-25.456324, -49.231621],
@@ -150,7 +160,7 @@ $(document).ready(function() {
         {
             pos: [-25.412874 , -49.258339],
             name: 'Juvevê',
-            cells: [cells.antonioMadeira]
+            cells: [cells.antonioMadeira, cells.cleverson]
         },
         {
             pos: [-25.489025, -49.294125],
@@ -185,7 +195,12 @@ $(document).ready(function() {
         {
             pos: [-25.418977, -49.348347],
             name: 'São Braz',
-            cells: [cells.mariaCristina],
+            cells: [cells.mariaCristina, cells.lais],
+        },
+        {
+            pos: [-25.531835, -49.203572],
+            name: 'São José dos Pinhais',
+            cells: [cells.clayton]
         },
         {
             pos: [-25.428522, -49.228371],
@@ -195,7 +210,7 @@ $(document).ready(function() {
         {
             pos: [-25.457769, -49.294653],
             name: 'Vila Isabel',
-            cells: [cells.antonioMadeira],
+            cells: [cells.antonioMadeira, cells.thelma],
         },
         {
             pos: [-25.409061, -49.291462],
@@ -263,7 +278,7 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).prop('disabled', true)
         e.preventDefault();
-        var url = 'https://formspree.io/cafeipic@gmail.com',
+        var url = 'https://formspree.io/ipic@ipic.org.br',
             formData = $('form').serializeArray(),
             data = {};
 
