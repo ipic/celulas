@@ -278,7 +278,7 @@ $(document).ready(function() {
         e.preventDefault();
         $(this).prop('disabled', true)
         e.preventDefault();
-        var url = 'https://formspree.io/ipic@ipic.org.br',
+        var url = 'https://formspree.io/cafeipic@gmail.com',
             formData = $('form').serializeArray(),
             data = {};
 
